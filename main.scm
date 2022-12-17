@@ -1,5 +1,6 @@
-(use-modules (web server) (pages/index))
+(use-modules (web server)
+             (pages/index))
 
-(define (handler request request-body)
-    (home-page))
+(define (handler request body)
+    (home-page request body))
 (run-server handler)

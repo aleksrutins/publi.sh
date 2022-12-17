@@ -1,8 +1,11 @@
 (define-module (pages/index)
     #:export (home-page))
 
-(use-modules (web server))
+(use-modules (web server)
+             (sxml simple)
+             (util/template))
 
-(define (home-page)
-    (values '((content-type . (text/html)))
-        "Hello World!"))
+(define (home-page request body)
+    (respond-template
+        `((h1 "Hello World!"))
+        #:title "Hello, World!"))
